@@ -24,7 +24,7 @@ const App = () => {
   }, [searchValue]);
 
   return (
-    <div className="">
+    <div>
       <Navigation
         searchValue={searchValue}
         setSearchValue={setSearchValue}
