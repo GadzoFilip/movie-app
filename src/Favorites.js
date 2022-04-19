@@ -12,9 +12,9 @@ const Favorites = () => {
       <Navigation heading="Favorites" />
       <Container fluid>
         {favorites.length ? (
-          <MovieList movies={favorites} favoritesText="Remove from Favorites" />
+          <MovieList movies={favorites} buttonText="Remove from Favorites" />
         ) : (
-          <div>
+          <div className="m-4">
             <h1>Add your favorite movie here :)</h1>
           </div>
         )}

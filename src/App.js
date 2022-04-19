@@ -4,6 +4,7 @@ import "bootstrap/dist/js/bootstrap.bundle";
 import React, { useEffect, useState } from "react";
 import MovieList from "./components/MovieList";
 import Navigation from "./components/Navigation";
+import { Container } from "react-bootstrap";
 
 const App = () => {
   const [moviesSearch, setMoviesSearch] = useState([]);
@@ -18,8 +19,6 @@ const App = () => {
     if (responseJson.Search) setMoviesSearch(responseJson.Search);
   };
 
-  console.log(moviesSearch);
-
   useEffect(() => {
     getMovieSearchRequest(searchValue);
   }, [searchValue]);
@@ -31,9 +30,15 @@ const App = () => {
         setSearchValue={setSearchValue}
         heading="Movie Library"
       />
-      <div className="container">
-        <MovieList movies={moviesSearch} favoritesText="Add to Favorites" />
-      </div>
+      {moviesSearch.length > 0 ? (
+        <Container>
+          <MovieList movies={moviesSearch} buttonText="Add to Favorites" />
+        </Container>
+      ) : (
+        <div className="m-4">
+          <h1>Search for a movie </h1>
+        </div>
+      )}
     </div>
   );
 };

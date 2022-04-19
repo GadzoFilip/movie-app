@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Navigation = (props) => {
   return (
@@ -31,7 +31,7 @@ const Navigation = (props) => {
             className="form-control me-2"
             value={props.value}
             onChange={(event) => props.setSearchValue(event.target.value)}
-            placeholder="Search for a movie ..."
+            placeholder="Search..."
             onKeyPress={(e) => e.key === "Enter" && e.preventDefault()}
           ></input>
         </form>
